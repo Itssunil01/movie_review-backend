@@ -3,6 +3,6 @@ const { signup } = require("../Controller/user");
 const { signupValidation } = require("../Middleware/user");
 const router = express.Router();
 
-router.post("/signup" , signup);
+router.post("/signup" ,  signupValidation , signup);
 
 module.exports = router;

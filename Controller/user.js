@@ -5,7 +5,7 @@ module.exports.signup = async (req, res) => {
   try {
     const { username, email, password } = req.body;
 
-    const user = User.findOne({ email });
+    const user = await User.findOne({ email });
 
     if (user) {
       return res
@@ -19,7 +19,7 @@ module.exports.signup = async (req, res) => {
         .json({ message: "All fields are required", success: false });
     }
 
-    const newUser = await User({username , email});
+    const newUser = new User({username , email});
 
     await User.register(newUser , password);
     return res.status(200).json({message: "Account Created Successfully" , success: true })
