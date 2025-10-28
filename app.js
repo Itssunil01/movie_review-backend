@@ -4,7 +4,7 @@ const PORT = 3000;
 const mongoose = require("mongoose");
 const session = require("express-session");
 const userRouter = require("./Routes/user");
-const cors = require("cors");
+const cors = require("cors")
 
 require("dotenv").config();
 
